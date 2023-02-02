@@ -2,4 +2,4 @@
 
 
 # ScreenShots
-![alt text](https://github.com/[newsunbanjade]/[learningapp-ui]/blob/[main]/home.png?raw=true)
+![alt text](https://github.com/newsunbanjade/learningapp-ui/blob/main/home.png?raw=true)
