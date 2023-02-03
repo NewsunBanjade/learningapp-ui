@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_course_app/detils_page.dart';
 import 'package:flutter_course_app/subject_model.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -128,44 +130,51 @@ class HomePage extends StatelessWidget {
                     mainAxisExtent: 170),
                 itemBuilder: (context, index) {
                   final data = subjects[index];
-                  return Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 15, horizontal: 20),
-                    decoration: BoxDecoration(
-                        color: const Color(0xff465363),
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                            width: 70,
-                            height: 70,
-                            child: Image.network(data.image)),
-                        Text(
-                          data.name,
-                          style: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w700),
-                        ),
-                        Text(
-                          "\$ ${data.price}",
-                          style: const TextStyle(
-                              color: Colors.white54,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.star,
-                              color: Colors.orange.shade400,
-                              size: 15,
-                            ),
-                            const SizedBox(
-                              width: 2,
-                            ),
-                            Text(data.rating.toString())
-                          ],
-                        )
-                      ],
+                  return GestureDetector(
+                    onTap: () => Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                          builder: (context) => CourseDetail(),
+                        )),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 20),
+                      decoration: BoxDecoration(
+                          color: const Color(0xff465363),
+                          borderRadius: BorderRadius.circular(15)),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: Image.network(data.image)),
+                          Text(
+                            data.name,
+                            style: const TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w700),
+                          ),
+                          Text(
+                            "\$ ${data.price}",
+                            style: const TextStyle(
+                                color: Colors.white54,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.star,
+                                color: Colors.orange.shade400,
+                                size: 15,
+                              ),
+                              const SizedBox(
+                                width: 2,
+                              ),
+                              Text(data.rating.toString())
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   );
                 })
